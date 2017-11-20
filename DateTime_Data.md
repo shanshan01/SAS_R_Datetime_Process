@@ -2,7 +2,9 @@ About datetime data in R
 ================
 
 <!-- This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.  -->
-1.  How to combine date and time data types in R dataframe into timestamp and how to compare/do computation of the timestamps. For example, I created a sample dataframe called demo1 with three columns: date, time and value.
+I often need to deal with date and time data in my data analysis. And sometimes I read in csv file where all the timestamps are read in as characters. I will need to process those character timestamps so I can compare, add/substract date to them later. There are three scenarios here.
+
+-   How to combine date and time data types in R dataframe into timestamp and how to compare/do computation of the timestamps. For example, I created a sample dataframe called demo1 with three columns: date, time and value.
 
 ``` r
 dt<-c('2017-11-18', '2017-11-16', '2017-11-20', '2017-11-01')
@@ -68,13 +70,9 @@ sum(df[which(df$ts>df$ts2[1]),'value'])
 
     ## [1] 0
 
-------------------------------------------------------------------------
+-   How to transform character into timestamp datatype in R dataframe. One can use `as.POSIXct(x, format = '%Y-%m-%d %H:%M:%S')` suppose x is a datatime value with character data type. <!-- Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*.  -->
 
-1.  How to transform character into timestamp datatype in R dataframe. One can use `as.POSIXct(x, format = '%Y-%m-%d %H:%M:%S')` suppose x is a datatime value with character data type. <!-- Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*.  -->
-
-2.  How to use cast to transform a character time into time type when reading data from database into R. This can be done using `cast(col_name as time)` in the SQL query.
-
-------------------------------------------------------------------------
+-   How to use cast to transform a character time into time type when reading data from database into R. This can be done using `cast(col_name as time)` in the SQL query.
 
 <!-- Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*. -->
 <!-- When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file).  -->
